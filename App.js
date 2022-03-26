@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Dimensions, PanResponder } from "react-native";
+import Face from "./src/components/Face";
 import { transformOrigin, rotateXY, rotateXZ } from "./utils";
 
 const HEIGHT = Dimensions.get("window").height;
@@ -59,74 +59,38 @@ export default function App() {
     onPanResponderMove: handlePanResponderMove,
   });
 
-  const renderLeft = (color) => {
-    return (
-      <View
-        ref={refViewRight}
-        style={[styles.rectangle, color ? { backgroundColor: color } : null]}
-        {...panResponder.panHandlers}
-      />
-    );
-  };
-
-  const renderRight = (color) => {
-    return (
-      <View
-        ref={refViewLeft}
-        style={[styles.rectangle, color ? { backgroundColor: color } : null]}
-        {...panResponder.panHandlers}
-      />
-    );
-  };
-
-  const renderFront = (color) => {
-    return (
-      <View
-        ref={refViewFront}
-        style={[styles.rectangle, color ? { backgroundColor: color } : null]}
-        {...panResponder.panHandlers}
-      />
-    );
-  };
-
-  const renderBack = (color) => {
-    return (
-      <View
-        ref={refViewBack}
-        style={[styles.rectangle, color ? { backgroundColor: color } : null]}
-        {...panResponder.panHandlers}
-      />
-    );
-  };
-
-  const renderTop = (color) => {
-    return (
-      <View
-        ref={refViewTop}
-        style={[styles.rectangle, color ? { backgroundColor: color } : null]}
-        {...panResponder.panHandlers}
-      />
-    );
-  };
-
-  const renderBottom = (color) => {
-    return (
-      <View
-        ref={refViewBottom}
-        style={[styles.rectangle, color ? { backgroundColor: color } : null]}
-        {...panResponder.panHandlers}
-      />
-    );
-  };
-
   return (
     <View style={styles.container}>
-      {renderFront("#4c72e0")}
-      {renderBack("#8697df")}
-      {renderLeft("#b5bce2")}
-      {renderRight("#e5afb9")}
-      {renderTop("#de7c92")}
-      {renderBottom("#d1426b")}
+      <Face
+        refView={refViewFront}
+        styles={[styles.rectangle, { backgroundColor: "#4c72e0" }]}
+        panResponder
+      />
+      <Face
+        refView={refViewBack}
+        styles={[styles.rectangle, { backgroundColor: "#8697df" }]}
+        panResponder
+      />
+      <Face
+        refView={refViewLeft}
+        styles={[styles.rectangle, { backgroundColor: "#b5bce2" }]}
+        panResponder
+      />
+      <Face
+        refView={refViewRight}
+        styles={[styles.rectangle, { backgroundColor: "#e5afb9" }]}
+        panResponder
+      />
+      <Face
+        refView={refViewTop}
+        styles={[styles.rectangle, { backgroundColor: "#de7c92" }]}
+        panResponder
+      />
+      <Face
+        refView={refViewBottom}
+        styles={[styles.rectangle, { backgroundColor: "#d1426b" }]}
+        panResponder
+      />
     </View>
   );
 }
@@ -138,7 +102,7 @@ const styles = StyleSheet.create({
     top: HEIGHT / 2 - 50,
     width: 100,
     height: 100,
-    backgroundColor: "transparent",
+    backgroundColor: "red",
   },
   rectangle: {
     position: "absolute",
