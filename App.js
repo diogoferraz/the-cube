@@ -64,32 +64,32 @@ export default function App() {
       <Face
         refView={refViewFront}
         styles={[styles.rectangle, { backgroundColor: "#4c72e0" }]}
-        panResponder
+        panResponder={panResponder}
       />
       <Face
         refView={refViewBack}
         styles={[styles.rectangle, { backgroundColor: "#8697df" }]}
-        panResponder
+        panResponder={panResponder}
       />
       <Face
         refView={refViewLeft}
         styles={[styles.rectangle, { backgroundColor: "#b5bce2" }]}
-        panResponder
+        panResponder={panResponder}
       />
       <Face
         refView={refViewRight}
         styles={[styles.rectangle, { backgroundColor: "#e5afb9" }]}
-        panResponder
+        panResponder={panResponder}
       />
       <Face
         refView={refViewTop}
         styles={[styles.rectangle, { backgroundColor: "#de7c92" }]}
-        panResponder
+        panResponder={panResponder}
       />
       <Face
         refView={refViewBottom}
         styles={[styles.rectangle, { backgroundColor: "#d1426b" }]}
-        panResponder
+        panResponder={panResponder}
       />
     </View>
   );
